@@ -1,0 +1,23 @@
+docker run -d -it -p 1521:1521 --name oracle store/oracle/database-enterprise:12.2.0.1
+
+
+docker exec -it f6e bash -c "source /home/oracle/.bashrc; sqlplus /nolog"
+
+
+alter session set "_ORACLE_SCRIPT"=true;
+
+create user dummy identified by dummy;
+
+GRANT ALL PRIVILEGES TO dummy;
+
+########################################################3
+
+CONNECT WITH DBEAVER
+
+HOST: localhost
+PORT: 1521
+DATABASE: ORCLCDB.localdomain | service name
+
+USERNAME: dummy
+PASSWORD: dummy
+

@@ -1,0 +1,13 @@
+-- CREAR SP 
+CREATE OR REPLACE PROCEDURE insert_canal (cID NUMBER, cCANAL varchar2) AS
+   -- tot_emps NUMBER;
+   BEGIN
+      INSERT INTO MOD_COM (ID , CANAL) VALUES (cID, cCANAL);
+   -- tot_emps := tot_emps - 1;
+   END;
+-- FIN DE CREAR SP
+
+ 
+-- EJECUTAR UN SP
+CALL ACSELX.INSERT_CANAL(3,'3');
+-- FIN DE EJECUTAR SP
