@@ -27,6 +27,8 @@ PASSWORD: dummy
 
 ### ORACLE 11g ########
 
+https://github.com/wnameless/docker-oracle-xe-11g
+
 Installation(Local)
 git clone https://github.com/wnameless/docker-oracle-xe-11g.git
 cd docker-oracle-xe-11g
