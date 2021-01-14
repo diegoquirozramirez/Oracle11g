@@ -1,8 +1,15 @@
 {
-    "name": "node-oracle",
+    "name": "node-databases-auvirtual",
     "version": "1.0.0",
-    "description": "",
+    "description": "Paquete NPM personalizado para generar conexiones con bases de datos como oracle, mysql",
     "main": "index.js",
+    "publishConfig": {
+        "registry": "http://207.180.251.164:8081/nexus/repository/node-databases-auvirtual/"
+    },
+    "contributors": [{
+        "name": "Diego Quiroz Ramirez",
+        "email": "ingquirozramirez@gmail.com"
+    }],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -10,6 +17,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "mysql": "^2.18.1",
         "oracledb": "^5.1.0"
     }
 }
