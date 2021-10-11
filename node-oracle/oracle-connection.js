@@ -5,9 +5,10 @@ let connection;
 
 class OracleDriver {
 
-    static async getConnection(type = "TNS", user = "system", password = "oracle", host = "hostname", port = "1521", SID = "xe", database = "") {
+    static async getConnection(type, user, password, host, port, SID, database) {
         try {
             const conexion = util.promisify(oracledb.getConnection).bind(oracledb);
+            console.info("CREATING POOL CONNECTION ... ")
             if (type == "TNS") {
                 connection = await conexion({
                     user: `${user}`,
@@ -26,11 +27,10 @@ class OracleDriver {
         }
     }
 
-    static async executeQuery(properties, query, databinds) {
+    static async executeQuery(query, databinds) {
         try {
-            //const { type, user, password, host, port, SID, database } = properties;
-            //await this.getConnection(type, user, password, host, port, SID, database);
-            const executeResult = await connection.execute(query, databinds); // [] por cada campo .. ejem [2, 'name','pepito', ...]
+            console.info("EXECUTING QUERY .... ")
+            const executeResult = await connection.execute(query, databinds, {}); // [] por cada campo .. ejem [2, 'name','pepito', ...]
             await this.closeConnection();
             return executeResult;
         } catch (error) {
@@ -41,6 +41,7 @@ class OracleDriver {
     static async closeConnection() {
         try {
             const close = await connection.release();
+            console.info("DATABASE RELEASED .... ")
             return close;
         } catch (error) {
             return error;
